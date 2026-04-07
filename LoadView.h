@@ -1,0 +1,12 @@
+#import <Foundation/Foundation.h>
+// #import "MethodObfuscation.h" (File not found)
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface MenuLoad : NSObject
+@end
+
+@interface MenuInteraction : UIView
+@end
+
+NS_ASSUME_NONNULL_END
