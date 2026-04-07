@@ -9,13 +9,15 @@ jobs:
 
       - name: Setup and Build
         run: |
-          # 1. ติดตั้ง Theos แบบรวดเร็ว
           git clone --depth 1 --recursive https://github.com/theos/theos.git ~/theos
           export THEOS=~/theos
           export PATH="$THEOS/bin:$PATH"
           
-          # 2. สั่ง Build โดยใช้ SDK ในเครื่อง (แก้ปัญหา Module Error)
-          make clean && make FINALPACKAGE=1 SDKVERSION=$(xcrun --sdk iphoneos --show-sdk-version)
+          # เพิ่ม Flag พิเศษเพื่อข้าม Error ในโค้ด C++ (Esp.h)
+          make clean && make FINALPACKAGE=1 \
+            SDKVERSION=$(xcrun --sdk iphoneos --show-sdk-version) \
+            ADDITIONAL_CFLAGS="-fpermissive" \
+            ADDITIONAL_OBJCCFLAGS="-fpermissive"
         env:
           SYSROOT: $(xcrun --sdk iphoneos --show-sdk-path)
 
