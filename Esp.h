@@ -4,10 +4,6 @@
 #include <vector>
 #include <string>
 
-// --- External Function Declarations ---
-extern "C" uint64_t getRealOffset(const char* offset);
-#define ENCRYPTOFFSET(x) x
-
 // --- Vector3 Definition ---
 struct Vector3 {
     float x, y, z;
