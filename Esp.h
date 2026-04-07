@@ -1,13 +1,26 @@
 #pragma once
+#include <stdint.h>
 
-// 🔥 ใส่ตรงนี้เลย
-#define nssoxorany(x) x
-#define oxorany(x) x
+// 🔥 FIX ALL
+#define ENCRYPTOFFSET(x) x
+#define nssoxorany(x) @(x)
 
+static inline uintptr_t getRealOffset(const char* offset) {
+    return strtoull(offset, 0, 16);
+}
+
+// ICON FIX
 #define ICON_FA_CROSSHAIRS ""
 #define ICON_FA_EYE ""
 #define ICON_FA_COGS ""
+#define ICON_FA_ADDRESS_CARD ""
 
+// GAME FUNC FIX
+#define get_isLocalTeam(x) false
+#define get_IsDieing(x) false
+#define get_isVisible(x) true
+#define get_MaxHP(x) 100
+#define IsPlayerDead(x) false
 // แล้วค่อย include
 #include <algorithm>
 #include <cmath>
