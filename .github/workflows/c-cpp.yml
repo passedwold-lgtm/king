@@ -1,23 +1,41 @@
-name: C/C++ CI
+name: Build Theos Tweak
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main, master ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main, master ]
+  workflow_dispatch:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+    - uses: actions/checkout@v3
+
+    - name: Set up Theos
+      run: |
+        bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
+        echo "THEOS=~/theos" >> $GITHUB_ENV
+        echo "~/theos/bin" >> $GITHUB_PATH
+
+    - name: Set up iOS SDK
+      run: |
+        git clone --depth 1 https://github.com/xybp888/iOS-SDKs.git ~/theos/sdks
+        # Move SDKs to the correct place if needed
+        mv ~/theos/sdks/*.sdk ~/theos/sdks/ 2>/dev/null || true
+
+    - name: Build Tweak
+      run: |
+        export THEOS=~/theos
+        # Build in root directory for flat structure
+        make clean && make FINALPACKAGE=1
+
+    - name: Upload Artifacts
+      uses: actions/artifact@v3
+      with:
+        name: Tweak-Dylib
+        path: |
+          .theos/obj/arm64/*.dylib
+          packages/*.deb
