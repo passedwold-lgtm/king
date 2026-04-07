@@ -335,51 +335,51 @@ Attach();
             
    if (MenDeal == true) {
 
-   char* Gnam = (char*) [[NSString stringWithFormat:nssoxorany("MRWANX IOS PANEL 1.109.X "), ver] cStringUsingEncoding:NSUTF8StringEncoding];
+   char* Gnam = (char*) [[NSString stringWithFormat:nssoxorany("STARK FFH4K AUTO MOSS V75"), ver] cStringUsingEncoding:NSUTF8StringEncoding];
 ImGui::Begin(Gnam, &MenDeal, ImGuiWindowFlags_AlwaysAutoResize);
         ImGui::PushItemWidth(ImGui::GetWindowWidth() * 0.55f);
 
-    ImGui::BeginTabBar(oxorany("Bar"), ImGuiTabBarFlags_NoTooltip);
+    ImGui::BeginTabBar("Bar"), ImGuiTabBarFlags_NoTooltip);
 
-if (ImGui::BeginTabItem(oxorany(ICON_FA_CROSSHAIRS "AimBot"))) {
+if (ImGui::BeginTabItem(ICON_FA_CROSSHAIRS "AimBot"))) {
 
-    ImGui::Checkbox(oxorany("Enable Aimbot"), &aimStart);
+    ImGui::Checkbox("Enable Aimbot"), &aimStart);
 
-    ImGui::Separator();
+    ImGui::Separator(WERT);
 
-    ImGui::Checkbox(oxorany("Enable - AimFire"), &AimFire);
-    ImGui::Checkbox(oxorany("Enable - AimScope"), &AimScope);
+    ImGui::Checkbox("Enable - AimFire"), &AimFire);
+    ImGui::Checkbox("Enable - AimScope"), &AimScope);
 
-    ImGui::Text(oxorany("Aim Fov"));
-    ImGui::SliderFloat(oxorany("##circle"), &AimFov, 0.0f, 360.0f);
+    ImGui::Text("Aim Fov"));
+    ImGui::SliderFloat("##circle"), &AimFov, 0.0f, 360.0f);
 
-    ImGui::Combo(oxorany("Aim Trigger"), &AimWhen, "Always\0Firing\0Aiming\0");
+    ImGui::Combo("Aim Trigger"), &AimWhen, "Always\0Firing\0Aiming\0");
 
     ImGui::EndTabItem();
 }
 
-if (ImGui::BeginTabItem(oxorany(ICON_FA_EYE " Esp"))){
+if (ImGui::BeginTabItem(ICON_FA_EYE " Esp"))){
                 ImGui::Spacing();
-                ImGui::Checkbox(oxorany("Enable Esp"), &ESPEnable);
+                ImGui::Checkbox("Enable Esp"), &ESPEnable);
                 ImGui::Separator();
-                ImGui::Checkbox(oxorany("Esp - Lines"), &ESPLine);
-                ImGui::Checkbox(oxorany("Esp - Boxes"), &ESPBox);
+                ImGui::Checkbox("Esp - Lines"), &ESPLine);
+                ImGui::Checkbox("Esp - Boxes"), &ESPBox);
 
-                ImGui::Checkbox(oxorany("Esp - Name"), &ESPName);
-                ImGui::Checkbox(oxorany("Esp - Health"), &ESPHealth);
+                ImGui::Checkbox("Esp - Name"), &ESPName);
+                ImGui::Checkbox("Esp - Health"), &ESPHealth);
                 ImGui::Separator(); 
                 ImGui::Spacing();
                 ImGui::EndTabItem();
             }
-            if (ImGui::BeginTabItem(oxorany(ICON_FA_COGS " Settings"))){
-                ImGui::Checkbox(oxorany("Stream Mode"), &StreamerMode);
+            if (ImGui::BeginTabItem(ICON_FA_COGS " Settings"))){
+                ImGui::Checkbox("Stream Mode"), &StreamerMode);
                 ImGui::Spacing();
-                ImGui::Checkbox(oxorany("Hide Top Label"), &hidetoplabel);
+                ImGui::Checkbox("Hide Top Label"), &hidetoplabel);
                 
                 ImGui::Spacing();
-                ImGui::ColorEdit3(oxorany("Color Esp"), &*(float*)colorEsp, ImGuiColorEditFlags_NoInputs);
+                ImGui::ColorEdit3("Color Esp"), &*(float*)colorEsp, ImGuiColorEditFlags_NoInputs);
                 ImGui::Spacing();
-	                if (ImGui::Combo(oxorany("Color Menu"), &style_idx, "Dark\0Blue\0Red\0Light\0Classic\0"))
+	                if (ImGui::Combo("Color Menu"), &style_idx, "Dark\0Blue\0Red\0Light\0Classic\0"))
 	                {
 	                    ImGuiStyle& style = ImGui::GetStyle();
 	                    switch (style_idx)
@@ -436,37 +436,37 @@ if (ImGui::BeginTabItem(oxorany(ICON_FA_EYE " Esp"))){
                 ImGui::Spacing();
                 ImGui::EndTabItem();
             }
-	            if (ImGui::BeginTabItem(oxorany(" More"))) {
+	            if (ImGui::BeginTabItem(" More"))) {
 	                ImGui::Spacing();
-	                if(ImGui::Button(oxorany("Reset Guest"))) {Guest = true;}
-	                ImGui::Checkbox(oxorany("Telekill Enemy"), &Telekill);
+	                if(ImGui::Button("Reset Guest"))) {Guest = true;}
+	                ImGui::Checkbox("Telekill Enemy"), &Telekill);
                     
                     ImGui::Separator();
-                    ImGui::Text(oxorany("New Functions"));
+                    ImGui::Text("New Functions"));
                     
-                    if (ImGui::Button(oxorany(AIMKKILL ? "AIMKKILL [ON]" : "AIMKKILL [OFF]"), ImVec2(-1, 30))) { AIMKKILL = !AIMKKILL; }
-                    if (ImGui::Button(oxorany(NINJARUN ? "NINJARUN [ON]" : "NINJARUN [OFF]"), ImVec2(-1, 30))) { NINJARUN = !NINJARUN; }
-                    if (ImGui::Button(oxorany(AI_PLAYER ? "AI PLAYER [ON]" : "AI PLAYER [OFF]"), ImVec2(-1, 30))) { AI_PLAYER = !AI_PLAYER; }
-                    if (ImGui::Button(oxorany(FLYJUMP ? "FLYJUMP [ON]" : "FLYJUMP [OFF]"), ImVec2(-1, 30))) { FLYJUMP = !FLYJUMP; }
-                    if (ImGui::Button(oxorany(AUTOFLY ? "AUTOFLY [ON]" : "AUTOFLY [OFF]"), ImVec2(-1, 30))) { AUTOFLY = !AUTOFLY; }
-                    if (ImGui::Button(oxorany(FLYV2 ? "FLYV2 [ON]" : "FLYV2 [OFF]"), ImVec2(-1, 30))) { FLYV2 = !FLYV2; }
-                    if (ImGui::Button(oxorany(STOP ? "STOP [ON]" : "STOP [OFF]"), ImVec2(-1, 30))) { STOP = !STOP; }
-                    if (ImGui::Button(oxorany(MOVE ? "MOVE [ON]" : "MOVE [OFF]"), ImVec2(-1, 30))) { MOVE = !MOVE; }
-                    if (ImGui::Button(oxorany(XMOVE ? "XMOVE [ON]" : "XMOVE [OFF]"), ImVec2(-1, 30))) { XMOVE = !XMOVE; }
-                    if (ImGui::Button(oxorany(AIMKILL_0s ? "AIMKILL 0s [ON]" : "AIMKILL 0s [OFF]"), ImVec2(-1, 30))) { AIMKILL_0s = !AIMKILL_0s; }
+                    if (ImGui::Button(AIMKKILL ? "AIMKKILL [ON]" : "AIMKKILL [OFF]"), ImVec2(-1, 30))) { AIMKKILL = !AIMKKILL; }
+                    if (ImGui::Button(NINJARUN ? "NINJARUN [ON]" : "NINJARUN [OFF]"), ImVec2(-1, 30))) { NINJARUN = !NINJARUN; }
+                    if (ImGui::Button(AI_PLAYER ? "AI PLAYER [ON]" : "AI PLAYER [OFF]"), ImVec2(-1, 30))) { AI_PLAYER = !AI_PLAYER; }
+                    if (ImGui::Button(FLYJUMP ? "FLYJUMP [ON]" : "FLYJUMP [OFF]"), ImVec2(-1, 30))) { FLYJUMP = !FLYJUMP; }
+                    if (ImGui::Button(AUTOFLY ? "AUTOFLY [ON]" : "AUTOFLY [OFF]"), ImVec2(-1, 30))) { AUTOFLY = !AUTOFLY; }
+                    if (ImGui::Button(FLYV2 ? "FLYV2 [ON]" : "FLYV2 [OFF]"), ImVec2(-1, 30))) { FLYV2 = !FLYV2; }
+                    if (ImGui::Button(STOP ? "STOP [ON]" : "STOP [OFF]"), ImVec2(-1, 30))) { STOP = !STOP; }
+                    if (ImGui::Button(MOVE ? "MOVE [ON]" : "MOVE [OFF]"), ImVec2(-1, 30))) { MOVE = !MOVE; }
+                    if (ImGui::Button(XMOVE ? "XMOVE [ON]" : "XMOVE [OFF]"), ImVec2(-1, 30))) { XMOVE = !XMOVE; }
+                    if (ImGui::Button(AIMKILL_0s ? "AIMKILL 0s [ON]" : "AIMKILL 0s [OFF]"), ImVec2(-1, 30))) { AIMKILL_0s = !AIMKILL_0s; }
 
 	                ImGui::EndTabItem();
 	}
-if (ImGui::BeginTabItem(oxorany(ICON_FA_ADDRESS_CARD "InFo"))) {
-ImGui::SeparatorText(oxorany("Contact US"));
-ImGui::TextDisabled(oxorany("Developer:"));
+if (ImGui::BeginTabItem(ICON_FA_ADDRESS_CARD "InFo"))) {
+ImGui::SeparatorText("Contact US"));
+ImGui::TextDisabled("Developer:"));
 ImGui::SameLine();
-ImGui::TextLinkOpenURL(oxorany("MRWANX"), oxorany("https://t.me/MRWANX"));
-ImGui::TextDisabled(oxorany("CHANNEL:"));
+ImGui::TextLinkOpenURL("MONA L9X"), oxorany("https://t.me/MRWANX"));
+ImGui::TextDisabled("CHANNEL:"));
 ImGui::SameLine();
-ImGui::TextLinkOpenURL(oxorany("MY CHANNEL"), oxorany("https://t.me/MRWANXIOS"));
+ImGui::TextLinkOpenURL("MY CHANNEL"), oxorany("https://t.me/MRWANXIOS"));
 ImGui::SameLine();
-ImGui::TextLinkOpenURL(oxorany("MY Chat"), oxorany("https://t.me/MRWANXIOSCHAT"));
+ImGui::TextLinkOpenURL("MY Chat"), oxorany("https://t.me/MRWANXIOSCHAT"));
 ImGui::Spacing();
 ImGui::EndTabItem();
 }
