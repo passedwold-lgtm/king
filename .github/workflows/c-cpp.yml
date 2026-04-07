@@ -23,17 +23,15 @@ jobs:
     - name: Set up iOS SDK
       run: |
         git clone --depth 1 https://github.com/xybp888/iOS-SDKs.git ~/theos/sdks
-        # Move SDKs to the correct place if needed
         mv ~/theos/sdks/*.sdk ~/theos/sdks/ 2>/dev/null || true
 
     - name: Build Tweak
       run: |
         export THEOS=~/theos
-        # Build in root directory for flat structure
         make clean && make FINALPACKAGE=1
 
     - name: Upload Artifacts
-      uses: actions/artifact@v4
+      uses: actions/upload-artifact@v4
       with:
         name: Tweak-Dylib
         path: |
