@@ -1,4 +1,18 @@
 #pragma once
+
+// 🔥 ใส่ตรงนี้เลย
+#define nssoxorany(x) x
+#define oxorany(x) x
+
+#define ICON_FA_CROSSHAIRS ""
+#define ICON_FA_EYE ""
+#define ICON_FA_COGS ""
+
+// แล้วค่อย include
+#include <algorithm>
+#include <cmath>
+#include <vector>
+#include <string>
 #include <algorithm>
 #include <cmath>
 #include <vector>
