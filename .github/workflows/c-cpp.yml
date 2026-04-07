@@ -33,7 +33,7 @@ jobs:
         make clean && make FINALPACKAGE=1
 
     - name: Upload Artifacts
-      uses: actions/artifact@v3
+      uses: actions/artifact@v4
       with:
         name: Tweak-Dylib
         path: |
